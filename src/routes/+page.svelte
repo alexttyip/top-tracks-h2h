@@ -7,7 +7,7 @@
 	let form: HTMLFormElement;
 	// intentionally not reactive - we don't want to clobber the input on subsequent navigations
 	let initialValue = data.query ?? '';
-	let artists = data.result ?? [];
+	$: artists = data.result ?? [];
 
 	const debouncedSubmit = debounce(() => {
 		if (typeof HTMLFormElement.prototype.requestSubmit == 'function') {
@@ -35,6 +35,10 @@
 
 <ul>
 	{#each artists as artist}
-		<li>{artist}</li>
+		<li>
+			<a href={`/artist/${artist.id}`}>
+				{artist.name}
+			</a>
+		</li>
 	{/each}
 </ul>
