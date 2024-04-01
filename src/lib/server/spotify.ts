@@ -28,7 +28,8 @@ export async function getToken() {
 
 export async function getSearchResult(q: string, accessToken: string) {
 	const res = await fetch(
-		'https://api.spotify.com/v1/search?' + new URLSearchParams({ q, type: 'artist' }).toString(),
+		'https://api.spotify.com/v1/search?' +
+			new URLSearchParams({ q, type: 'artist', limit: '50' }).toString(),
 		getDefaultSpotifyFetchParam(accessToken)
 	);
 
