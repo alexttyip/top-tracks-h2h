@@ -11,6 +11,7 @@ type SpotifySearchResultResponse = {
 type SpotifyArtists = {
 	id: string;
 	name: string;
+	images: { url: string; width: number | null; height: number | null }[];
 };
 
 type SpotifyArtistAlbums = {

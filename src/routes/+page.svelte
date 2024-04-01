@@ -1,9 +1,8 @@
 <script lang="ts">
-	import type { PageData } from './$types';
-	import debounce from 'lodash/debounce';
 	import { Input } from '$lib/components/ui/input';
 	import { ScrollArea } from '$lib/components/ui/scroll-area/index.js';
-	import { Separator } from '$lib/components/ui/separator/index.js';
+	import debounce from 'lodash/debounce';
+	import type { PageData } from './$types';
 
 	export let data: PageData;
 
@@ -46,13 +45,23 @@
 					Loading artists...
 				{:then artists}
 					{#if artists}
-						{#each artists as artist}
-							<a href={`/artist/${artist.id}`} class="text-sm">
-								{artist.name}
-							</a>
+						<ul role="list" class="divide-y divide-solid">
+							{#each artists as artist}
+								<li class="flex min-w-0 items-center gap-x-4 py-5">
+									<a href={`/artist/${artist.id}`} class="contents">
+										<img
+											class="h-12 w-12 flex-none rounded-full"
+											src={artist.images[0]?.url}
+											alt={`Artist picture for ${artist.name}`}
+										/>
 
-							<Separator class="my-2" />
-						{/each}
+										<div class="min-w-0 flex-auto">
+											<p class="text-sm font-semibold leading-6">{artist.name}</p>
+										</div>
+									</a>
+								</li>
+							{/each}
+						</ul>
 					{:else if !data.query}
 						Start typing to search for an artist
 					{:else}

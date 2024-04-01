@@ -6,10 +6,7 @@ const searchForArtists = async (query: string): Promise<SpotifyArtists[]> => {
 
 	const result = await getSearchResult(query, accessToken);
 
-	return result.artists.items.map(({ name, id }) => ({
-		name,
-		id
-	}));
+	return result.artists.items;
 };
 
 export const load: PageServerLoad = ({ url }) => {
