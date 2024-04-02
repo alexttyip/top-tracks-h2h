@@ -12,6 +12,8 @@ export const actions = {
 			return fail(400, { missing: true });
 		}
 
+		// TODO create bracket in db then redirect to bracket page
+
 		return redirect(303, `${pathname}/bracket/${bracketSize}`);
 	}
 } satisfies Actions;
