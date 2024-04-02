@@ -36,6 +36,17 @@ export async function getSearchResult(q: string, accessToken: string) {
 	return res.json() as Promise<SpotifySearchResultResponse>;
 }
 
+export async function getArtistName(artistId: string, accessToken: string) {
+	const res = await fetch(
+		`https://api.spotify.com/v1/artists/${artistId}`,
+		getDefaultSpotifyFetchParam(accessToken)
+	);
+
+	return res.json() as Promise<{
+		name: string;
+	}>;
+}
+
 export async function getArtistAlbums(artistId: string, accessToken: string) {
 	const params = new URLSearchParams({
 		limit: '50',
