@@ -1,4 +1,5 @@
 import { SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET } from '$env/static/private';
+import { Buffer } from 'node:buffer';
 
 function getDefaultSpotifyFetchParam(accessToken: string) {
 	return {
