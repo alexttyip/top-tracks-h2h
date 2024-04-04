@@ -46,3 +46,9 @@ type SpotifyTrack = {
 	name: string;
 	popularity: number;
 };
+
+type DbTournament = {
+	artistId: string;
+	trackIds: string[];
+	bracketSize: number;
+};

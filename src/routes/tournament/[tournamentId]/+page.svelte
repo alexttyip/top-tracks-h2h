@@ -4,7 +4,7 @@
 	export let data: PageData;
 </script>
 
-<h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
+<h1 class="mb-2 scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
 	Round of {data.bracketSize}
 </h1>
 
